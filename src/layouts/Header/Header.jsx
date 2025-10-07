@@ -21,7 +21,7 @@ const Header = () => {
                         <ul className='flex gap-5'>
                             {menu}
                         </ul>
-                        <Link to='https://github.com/LitanMolla' target='_blank' className='bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center text-gray-100 px-5 py-2 rounded-md gap-2.5 duration-300 hover:bg-gradient-to-tl'><FaGithub />Contribute</Link>
+                        <Link to='https://github.com/LitanMolla' target='_blank' className='bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center text-gray-100 px-5 py-2.5 rounded-md gap-2.5 duration-300 hover:bg-gradient-to-tl'><FaGithub />Contribute</Link>
                     </div>
                 </Container>
             </header>
