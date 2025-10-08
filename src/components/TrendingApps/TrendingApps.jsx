@@ -2,8 +2,11 @@ import React from 'react'
 import Container from '../Container/Container'
 import AppCard from '../AppCard/AppCard'
 import { Link } from 'react-router'
+import useAppData from '../../hooks/useAppData'
 
 const TrendingApps = () => {
+    const {apps} = useAppData();
+    const sliceData = apps.slice(0,8);
     return (
         <>
             <div className="my-10 md:my-20">
@@ -12,8 +15,8 @@ const TrendingApps = () => {
                     <p className='text-gray-900/60 text-center mt-4'>Explore All Trending Apps on the Market developed by us</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
                         {
-                            [1, 1, 1, 1, 1, 1, 1, 1].map(app => (
-                                <AppCard />
+                            sliceData.map(app => (
+                                <AppCard key={app.id} app={app} />
                             ))
                         }
                     </div>
