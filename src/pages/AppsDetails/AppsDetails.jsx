@@ -25,7 +25,6 @@ const AppsDetails = () => {
     setInstallData(id);
     toast.success(`${title} Installed`);
   }
-  console.log(ratings);
   return (
     <>
       {pending && <Spinner />}
@@ -68,7 +67,7 @@ const AppsDetails = () => {
             </div>
             <hr className='border-gray-300 my-5' />
             <h4 className='text-xl font-medium'>Ratings</h4>
-            <div className="w-full h-100 mt-5">
+            <div className="w-full h-80 md:h-100 mt-5">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart layout="vertical" data={[...ratings].reverse()}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
