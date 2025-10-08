@@ -1,11 +1,9 @@
-import React from 'react'
 import { FaStar } from 'react-icons/fa'
 import { FiDownload } from 'react-icons/fi'
 import { Link } from 'react-router'
-import { getInstallData, removeItem } from '../../utilities/LocalStorage/LocalStorage'
 
 const InstalledCard = ({app,handleUnistall}) => {
-    const { title, size, reviews, ratingAvg, image, downloads, description, companyName, id, ratings } = app || [];
+    const { title, size, ratingAvg, image, downloads, id } = app || [];
     
     return (
         <>
@@ -31,4 +29,4 @@ const InstalledCard = ({app,handleUnistall}) => {
     )
 }
 
-export default InstalledCard
+export default InstalledCard;

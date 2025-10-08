@@ -1,4 +1,3 @@
-import React from 'react'
 import Container from '../../components/Container/Container'
 import downloadsImg from '../../assets/icon-downloads.png'
 import reviewImg from '../../assets/icon-review.png'
@@ -9,9 +8,7 @@ import { getInstallData, setInstallData } from '../../utilities/LocalStorage/Loc
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import AppNotFound from '../../components/AppNotFound/AppNotFound'
-
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
-const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }];
 
 const AppsDetails = () => {
   const { apps, pending } = useAppData();
@@ -25,8 +22,8 @@ const AppsDetails = () => {
     if (isExit) {
       return;
     }
-    setInstallData(id)
-    toast.success(`${title} Installed`)
+    setInstallData(id);
+    toast.success(`${title} Installed`);
   }
   console.log(ratings);
   return (

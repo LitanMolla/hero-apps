@@ -4,7 +4,7 @@ import { FiDownload } from 'react-icons/fi'
 import { Link } from 'react-router';
 
 const AppCard = ({ app }) => {
-    const { title, size, reviews, ratingAvg, image, id, downloads, description, companyName, ratings } = app;
+    const { title, ratingAvg, image, id, downloads} = app || [];
     return (
         <>
             <Link to={`/app-details/${id}`}>

@@ -1,4 +1,3 @@
-import React from 'react'
 import Container from '../../components/Container/Container'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router'
@@ -52,4 +51,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer;

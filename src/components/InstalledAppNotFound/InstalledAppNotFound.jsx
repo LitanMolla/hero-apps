@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router'
 
 const InstalledAppNotFound = () => {
@@ -13,4 +12,4 @@ const InstalledAppNotFound = () => {
     )
 }
 
-export default InstalledAppNotFound
+export default InstalledAppNotFound;

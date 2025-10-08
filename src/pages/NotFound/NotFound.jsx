@@ -1,4 +1,3 @@
-import React from 'react'
 import errorImg from '../../assets/error-404.png'
 import Header from '../../layouts/Header/Header'
 import Footer from '../../layouts/Footer/Footer'

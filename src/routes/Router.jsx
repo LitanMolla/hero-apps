@@ -1,4 +1,3 @@
-import React from 'react'
 import { createBrowserRouter } from 'react-router';
 import Root from '../layouts/Root/Root';
 import NotFound from '../pages/NotFound/NotFound';

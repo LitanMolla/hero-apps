@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from '../../components/Container/Container'
 import InstalledCard from '../../components/InstalledCard/InstalledCard'
 import useAppData from '../../hooks/useAppData';
@@ -24,10 +24,10 @@ const Installation = () => {
   }
   const handleSort = () => {
     if (sort === 'lowtohigh') {
-      const sortData = installedApp.sort((a, b) => a.size - b.size);
+      const sortData = installedApp?.sort((a, b) => a.size - b.size);
       setInstalledApp([...sortData]);
     } else if (sort === 'highttolow') {
-      const sortData = installedApp.sort((a, b) => b.size - a.size);
+      const sortData = installedApp?.sort((a, b) => b.size - a.size);
       setInstalledApp([...sortData]);
     }
   }
@@ -40,17 +40,17 @@ const Installation = () => {
           <div className="flex justify-between items-center my-10">
             <h4 className='text-xl font-medium'>{installedApp.length} Apps Found</h4>
             <select onChange={(event) => setSort(event.target.value)} onClick={handleSort} className='border outline-0 px-4 py-2 rounded-sm border-gray-300 bg-white'>
-              <option value="">Sort By Size</option>
+              <option value="">Sort by size</option>
               <option value="lowtohigh">Low to high</option>
               <option value="highttolow">High to low</option>
             </select>
           </div>
           {installedApp.length === 0 && !pending && <InstalledAppNotFound />}
-          {pending ? <Spinner /> : <div className="space-y-5">{installedApp.map(app => (<InstalledCard key={app.id} app={app} handleUnistall={handleUnistall} />))}</div>}
+          {pending ? <Spinner /> : <div className="space-y-5">{installedApp?.map(app => (<InstalledCard key={app.id} app={app} handleUnistall={handleUnistall} />))}</div>}
         </Container>
       </div>
     </>
   )
 }
 
-export default Installation
+export default Installation;

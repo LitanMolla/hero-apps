@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Container from '../../components/Container/Container'
 import useAppData from '../../hooks/useAppData';
 import AppCard from '../../components/AppCard/AppCard';
@@ -8,9 +8,9 @@ import AppNotFound from '../../components/AppNotFound/AppNotFound';
 const Apps = () => {
   const [search, setSearch] = useState('');
   const [searchLoading, setSearchLoading] = useState(false);
-  const { apps, pending, error } = useAppData();
+  const { apps, pending } = useAppData();
   const serachValue = search.trim().toLowerCase();
-  const searchResulData = apps.filter(app => app.title.toLowerCase().includes(serachValue));
+  const searchResulData = apps?.filter(app => app.title.toLowerCase().includes(serachValue));
   const handleSearch = (event) => {
     setSearchLoading(true);
     setTimeout(() => setSearchLoading(false), 500)
@@ -32,7 +32,7 @@ const Apps = () => {
           {searchLoading && <Spinner />}
           {searchResulData.length === 0 && !searchLoading && <AppNotFound />}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
-            {pending || searchLoading || searchResulData.map(app => (<AppCard key={app.id} app={app} />))}
+            {pending || searchLoading || searchResulData?.map(app => (<AppCard key={app.id} app={app} />))}
           </div>
         </Container>
       </div>

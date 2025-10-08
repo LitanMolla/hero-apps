@@ -1,4 +1,3 @@
-import React from 'react'
 import Container from '../Container/Container'
 import { Link } from 'react-router'
 import apple from '../../assets/apple.svg'
@@ -25,4 +24,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Hero;

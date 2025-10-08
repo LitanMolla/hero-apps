@@ -1,4 +1,3 @@
-import React from 'react'
 import appError from '../../assets/App-Error.png'
 import { Link } from 'react-router'
 const AppNotFound = () => {
@@ -16,4 +15,4 @@ const AppNotFound = () => {
   )
 }
 
-export default AppNotFound
+export default AppNotFound;
