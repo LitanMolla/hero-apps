@@ -25,7 +25,7 @@ const InstalledCard = ({app,handleUnistall}) => {
                         </div>
                     </div>
                 </div>
-                <Link onClick={()=>handleUnistall(id)} className='bg-green-500 px-6 py-2 rounded-md text-gray-100 duration-300 hover:bg-green-600'>Unistall</Link>
+                <Link onClick={()=>handleUnistall(id,title)} className='bg-green-500 px-6 py-2 rounded-md text-gray-100 duration-300 hover:bg-green-600'>Unistall</Link>
             </div>
         </>
     )

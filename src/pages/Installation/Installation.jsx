@@ -5,6 +5,7 @@ import useAppData from '../../hooks/useAppData';
 import { getInstallData, removeItem } from '../../utilities/LocalStorage/LocalStorage';
 import Spinner from '../../components/Spinner/Spinner';
 import InstalledAppNotFound from '../../components/InstalledAppNotFound/InstalledAppNotFound';
+import { toast } from 'react-toastify';
 
 const Installation = () => {
   const [installedApp, setInstalledApp] = useState([]);
@@ -15,10 +16,11 @@ const Installation = () => {
     const filter = apps?.filter(item => installData.includes(String(item.id)));
     setInstalledApp([...filter]);
   }, [apps]);
-  const handleUnistall = (id) => {
+  const handleUnistall = (id,title) => {
     removeItem(id);
     const filter = installedApp?.filter(i => i.id !== id);
     setInstalledApp([...filter]);
+    toast.warn(`${title} Uninstalled`)
   }
   const handleSort = () => {
     if (sort === 'lowtohigh') {
