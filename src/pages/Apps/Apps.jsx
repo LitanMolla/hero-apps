@@ -24,7 +24,7 @@ const Apps = () => {
           <p className='text-gray-900/60 text-center mt-4'>Explore All Apps on the Market developed by us. We code for Millions</p>
           <div className="flex justify-between items-center mt-10">
             <h4 className='text-xl font-medium'>({searchResulData.length}) Apps Found</h4>
-            <div className="max-w-[400px] w-full">
+            <div className="md:max-w-[400px] max-w-[200px] w-full">
               <input onChange={handleSearch} className='border w-full outline-0 px-4 py-2 rounded-sm border-gray-300' type="search" placeholder='Search Apps' />
             </div>
           </div>
