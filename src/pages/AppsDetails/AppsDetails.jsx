@@ -10,6 +10,9 @@ import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import AppNotFound from '../../components/AppNotFound/AppNotFound'
 
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }];
+
 const AppsDetails = () => {
   const { apps, pending } = useAppData();
   const { id } = useParams()
@@ -25,6 +28,7 @@ const AppsDetails = () => {
     setInstallData(id)
     toast.success(`${title} Installed`)
   }
+  console.log(ratings);
   return (
     <>
       {pending && <Spinner />}
@@ -67,6 +71,17 @@ const AppsDetails = () => {
             </div>
             <hr className='border-gray-300 my-5' />
             <h4 className='text-xl font-medium'>Ratings</h4>
+            <div className="w-full h-100 mt-5">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart layout="vertical" data={[...ratings].reverse()}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis type="number" />
+                  <YAxis dataKey="name" type="category" width={70} />
+                  <Tooltip />
+                  <Bar dataKey="count" fill="#FF8811" barSize={30} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
             <hr className='border-gray-300 my-5' />
             <h4 className='text-xl font-medium'>Description</h4>
             <p className='text-gray-900/60'>{description}</p>
