@@ -8,16 +8,16 @@ import { useState } from 'react'
 const Header = () => {
     const [isOpen, setIsopen] = useState(false)
     const menu = <>
-        <li><NavLink to='/' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Home</NavLink></li>
-        <li><NavLink to='/apps' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Apps</NavLink></li>
-        <li><NavLink to='/installation' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Installation</NavLink></li>
+        <li><NavLink onClick={() => setIsopen(prv => !prv)} to='/' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Home</NavLink></li>
+        <li><NavLink onClick={() => setIsopen(prv => !prv)} to='/apps' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Apps</NavLink></li>
+        <li><NavLink onClick={() => setIsopen(prv => !prv)} to='/installation' className={({ isActive }) => (isActive ? 'bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500 font-medium border-b-2 border-purple-500' : 'font-medium')}>Installation</NavLink></li>
     </>
     return (
         <>
             <header className='py-4 bg-white'>
                 <Container>
                     <div className="flex justify-between items-center">
-                        <Link onClick={() => setIsopen(prv => !prv)} className='text-2xl md:hidden'><FaBarsStaggered /></Link>
+                        <button onClick={() => setIsopen(prv => !prv)} className='text-2xl md:hidden'><FaBarsStaggered /></button>
                         <Link to='/' className='flex items-center gap-2'>
                             <img className='w-10' src={logo} alt="Logo" />
                             <span className='text-2xl font-semibold bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500'>HERO.IO</span>
