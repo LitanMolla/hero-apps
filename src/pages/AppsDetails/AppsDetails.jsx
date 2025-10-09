@@ -7,15 +7,13 @@ import useAppData from '../../hooks/useAppData'
 import { getInstallData, setInstallData } from '../../utilities/LocalStorage/LocalStorage'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
-import AppNotFound from '../../components/AppNotFound/AppNotFound'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { formatNumber } from '../../utilities/formatNumber/formatNumber'
 
 const AppsDetails = () => {
   const { apps, pending } = useAppData();
   const { id } = useParams()
-  const app = apps?.find(item => item.id === Number(id));
-  const appExit = apps?.some(item => item.id === Number(id));
+  const app = apps.find(item => item.id === Number(id));
   const { title, size, reviews, ratingAvg, image, downloads, description, companyName, ratings } = app || [];
   const downloadsCount = formatNumber(downloads);
   const reviewsCount = formatNumber(reviews);
@@ -31,11 +29,8 @@ const AppsDetails = () => {
   return (
     <>
       {pending && <Spinner />}
-      {appExit || pending || <AppNotFound />}
       {
         !pending
-        &&
-        app
         &&
         <div className="py-10 md:py-20">
           <Container>
