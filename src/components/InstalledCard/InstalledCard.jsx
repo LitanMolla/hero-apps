@@ -1,10 +1,11 @@
 import { FaStar } from 'react-icons/fa'
 import { FiDownload } from 'react-icons/fi'
 import { Link } from 'react-router'
+import { formatNumber } from '../../utilities/formatNumber/formatNumber';
 
 const InstalledCard = ({app,handleUnistall}) => {
     const { title, size, ratingAvg, image, downloads, id } = app || [];
-    
+    const downloadsCount = formatNumber(downloads);
     return (
         <>
             <div className="flex flex-col md:flex-row justify-center md:justify-between items-center bg-white p-4 rounded-md border border-gray-200 gap-5 shadow-gray-300 hover:shadow-xl duration-300">
@@ -16,7 +17,7 @@ const InstalledCard = ({app,handleUnistall}) => {
                         <div className="space-y-2">
                             <h4 className='font-medium'>{title}</h4>
                             <div className="flex items-center gap-5">
-                                <p className='flex items-center gap-2 text-green-500'><FiDownload />{downloads}</p>
+                                <p className='flex items-center gap-2 text-green-500'><FiDownload />{downloadsCount}</p>
                                 <p className='flex items-center gap-2 text-yellow-500'><FaStar />{ratingAvg}</p>
                                 <p className='text-gray-900/60'>{size} MB</p>
                             </div>

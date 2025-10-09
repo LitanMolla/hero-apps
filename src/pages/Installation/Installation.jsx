@@ -24,10 +24,11 @@ const Installation = () => {
   }
   const handleSort = () => {
     if (sort === 'lowtohigh') {
-      const sortData = installedApp?.sort((a, b) => a.size - b.size);
+      const sortData = installedApp?.sort((a, b) => a.downloads - b.downloads);
       setInstalledApp([...sortData]);
+      console.log(sortData);
     } else if (sort === 'highttolow') {
-      const sortData = installedApp?.sort((a, b) => b.size - a.size);
+      const sortData = installedApp?.sort((a, b) => b.downloads - a.downloads);
       setInstalledApp([...sortData]);
     }
   }
@@ -40,7 +41,7 @@ const Installation = () => {
           <div className="flex justify-between items-center my-10">
             <h4 className='text-xl font-medium'>{installedApp.length} Apps Found</h4>
             <select onChange={(event) => setSort(event.target.value)} onClick={handleSort} className='border outline-0 px-4 py-2 rounded-sm border-gray-300 bg-white'>
-              <option value="">Sort by size</option>
+              <option value="">Sort by downloads</option>
               <option value="lowtohigh">Low to high</option>
               <option value="highttolow">High to low</option>
             </select>

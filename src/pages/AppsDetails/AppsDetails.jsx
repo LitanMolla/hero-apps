@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import AppNotFound from '../../components/AppNotFound/AppNotFound'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { formatNumber } from '../../utilities/formatNumber/formatNumber'
 
 const AppsDetails = () => {
   const { apps, pending } = useAppData();
@@ -16,6 +17,8 @@ const AppsDetails = () => {
   const app = apps?.find(item => item.id === Number(id));
   const appExit = apps?.some(item => item.id === Number(id));
   const { title, size, reviews, ratingAvg, image, downloads, description, companyName, ratings } = app || [];
+  const downloadsCount = formatNumber(downloads);
+  const reviewsCount = formatNumber(reviews);
   const installData = getInstallData();
   const isExit = installData?.find(item => item == id);
   const handleInstall = () => {
@@ -48,7 +51,7 @@ const AppsDetails = () => {
                   <div className="text-center space-y-1">
                     <img className='w-10 mx-auto' src={downloadsImg} alt="downloads" />
                     <p className=''>Downloads</p>
-                    <h4 className='text-4xl font-bold'>{downloads}</h4>
+                    <h4 className='text-4xl font-bold'>{downloadsCount}</h4>
                   </div>
                   <div className="text-center space-y-1">
 
@@ -59,7 +62,7 @@ const AppsDetails = () => {
                   <div className="text-center space-y-1">
                     <img className='w-10 mx-auto' src={reviewImg} alt="review" />
                     <p className=''>Total Reviews</p>
-                    <h4 className='text-4xl font-bold'>{reviews}</h4>
+                    <h4 className='text-4xl font-bold'>{reviewsCount}</h4>
                   </div>
                 </div>
                 <Link onClick={handleInstall} className={`${isExit && 'cursor-not-allowed'} px-6 py-3 bg-green-500 rounded-md text-gray-100 inline-block duration-300 hover:bg-green-600`}>{isExit ? 'Installed' : `Install Now (${size}) `} </Link>

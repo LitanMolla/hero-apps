@@ -2,9 +2,11 @@ import React from 'react'
 import { FaStar } from 'react-icons/fa'
 import { FiDownload } from 'react-icons/fi'
 import { Link } from 'react-router';
+import { formatNumber } from '../../utilities/formatNumber/formatNumber';
 
 const AppCard = ({ app }) => {
     const { title, ratingAvg, image, id, downloads} = app || [];
+    const downloadsCount = formatNumber(downloads);
     return (
         <>
             <Link to={`/app-details/${id}`}>
@@ -14,7 +16,7 @@ const AppCard = ({ app }) => {
                     </div>
                     <p className='font-medium'>{title}</p>
                     <div className="flex justify-between items-center">
-                        <p className='flex gap-2 items-center bg-green-100 text-green-600 px-4 py-1 rounded-lg'><FiDownload /> {downloads}</p>
+                        <p className='flex gap-2 items-center bg-green-100 text-green-600 px-4 py-1 rounded-lg'><FiDownload /> {downloadsCount}</p>
                         <p className='flex gap-2 items-center bg-yellow-100 text-yellow-600 px-4 py-1 rounded-lg'><FaStar /> {ratingAvg}</p>
                     </div>
                 </div>
