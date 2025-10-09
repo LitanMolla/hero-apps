@@ -13,7 +13,7 @@ import { formatNumber } from '../../utilities/formatNumber/formatNumber'
 const AppsDetails = () => {
   const { apps, pending } = useAppData();
   const { id } = useParams()
-  const app = apps.find(item => item.id === Number(id));
+  const app = apps?.find(item => item.id === Number(id));
   const { title, size, reviews, ratingAvg, image, downloads, description, companyName, ratings } = app || [];
   const downloadsCount = formatNumber(downloads);
   const reviewsCount = formatNumber(reviews);
