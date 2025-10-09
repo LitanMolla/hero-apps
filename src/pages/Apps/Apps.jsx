@@ -30,7 +30,7 @@ const Apps = () => {
           </div>
           {pending && <Spinner />}
           {searchLoading && <Spinner />}
-          {searchResulData.length === 0 && !searchLoading && <AppNotFound />}
+          {searchResulData.length === 0 && !searchLoading && !pending && <AppNotFound />}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10">
             {pending || searchLoading || searchResulData?.map(app => (<AppCard key={app.id} app={app} />))}
           </div>

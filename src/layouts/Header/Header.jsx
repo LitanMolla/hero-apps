@@ -17,7 +17,7 @@ const Header = () => {
             <header className='py-4 bg-white'>
                 <Container>
                     <div className="flex justify-between items-center">
-                        <button onClick={() => setIsopen(prv => !prv)} className='text-2xl md:hidden'><FaBarsStaggered /></button>
+                        <button onClick={() => setIsopen(prv => !prv)} className='text-2xl md:hidden cursor-pointer'><FaBarsStaggered /></button>
                         <Link to='/' className='flex items-center gap-2'>
                             <img className='w-10' src={logo} alt="Logo" />
                             <span className='text-2xl font-semibold bg-gradient-to-tr bg-clip-text text-transparent from-purple-600 to-pink-500'>HERO.IO</span>
